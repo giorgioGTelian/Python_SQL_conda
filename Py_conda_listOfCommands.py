@@ -3,7 +3,28 @@
 #following https://www.edureka.co/blog/python-anaconda-tutorial/
 
 #sqlite presenter$ Python3 txt.py
+# the Python library we will be using to connect to the database
+import sqlite
+# open a database connection
+connection = sqlite3.connect('chinook.db')
+# ask the connection for a <strong>cursor object</strong>
+# the cursor object is used to interact with the DB and execute queries
+cursor = connection.cursor()
+# run a query
+result_set = cursor.execute('SELECT * FROM Track') 
+#cursor will execute the query and store results in the <strong>result set</strong>
+for row in result_set:
+      # row = <strong>tuple object</strong> where each element is a value
+     print (row)
+# <strong>close the cursor</strong>
+cursor.close()   # once closed, a cursor object cannot be used again. We have to get a new cursor from the connection
+# <strong>close the database connection</strong>
+connection.close()    # this is to tell the database that we are done working with it and it can release any memory and resources associated with this connection.
 
+
+
+
+#######################################               conda variables and commands            ####################################
 #variable declaration
 name = "Edureka"
 f = 1991
